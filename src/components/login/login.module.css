@@ -1,9 +1,8 @@
-
 @value makerWhite from '../../common/colors.css';
 
 .modal {
+  position: relative;
   width: 600px;
-
 }
 
 .container {
@@ -16,7 +15,7 @@
 
 .title {
   margin-bottom: 1.5rem;
-  padding: .5rem;
+  padding: 0.5rem;
   font-size: 2.5rem;
   font-weight: 600;
 }

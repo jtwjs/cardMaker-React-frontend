@@ -5,7 +5,7 @@ const Header = ({onLogout}) => {
     return (
         <header className={styles.header}>
         {
-            true && <button onClick={onLogout} className={styles.logout}>
+            onLogout && <button onClick={onLogout} className={styles.logout}>
                 Logout
             </button>
             }
