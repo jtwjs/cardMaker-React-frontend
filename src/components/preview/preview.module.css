@@ -1,14 +1,24 @@
 @value makerGreen from '../../common/colors.css';
+@value mediaQuery from '../../common/size.css';
 
 .preview {
   width: 100%;
+  min-height: 100vh;
   padding: 2rem 1rem;
-  background-color: pink;
 }
 
 .title {
+  margin-bottom: 3rem;
   font-size: 1.5rem;
   font-weight: 600;
   text-align: center;
   color: makerGreen;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: mediaQuery) {
 }

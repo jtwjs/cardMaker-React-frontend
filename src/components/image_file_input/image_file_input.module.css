@@ -1,0 +1,8 @@
+@value makerWhite,makerLightPink from '../../common/colors.css';
+
+.button {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: makerLightPink;
+  cursor: pointer;
+}

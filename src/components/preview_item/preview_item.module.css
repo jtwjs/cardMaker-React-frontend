@@ -1,0 +1,70 @@
+@value makerBlack, makerWhite, makerColorful, makerShadow, makerWheat from '../../common/colors.css';
+
+.item {
+  display: flex;
+  align-items: center;
+  max-width: 30rem;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 15px;
+  padding: 1rem 2rem;
+  color: makerWhite;
+  box-shadow: 6px 6px 8px 0 makerShadow;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.item.dark {
+  background-color: makerBlack;
+}
+
+.item.light {
+  color: makerBlack;
+  background-color: makerWhite;
+}
+
+.item.colorful {
+  background: makerColorful;
+}
+
+.profile {
+  min-width: 9rem;
+  height: 9rem;
+  margin-right: 3rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+}
+
+.info {
+  width: 100%;
+}
+
+.infoTop {
+  border-bottom: 2px solid makerWheat;
+  padding: 0.5rem 0;
+}
+
+.name {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.text {
+  display: block;
+}
+
+.text:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.infoBottom {
+  padding: 0.5rem 0;
+}
