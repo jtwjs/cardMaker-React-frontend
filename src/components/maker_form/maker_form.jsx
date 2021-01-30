@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styles from './maker_form.module.css';
 import MakeButton from '../maker_button/maker_button';
 import ImageFileInput from '../image_file_input/image_file_input';
 
-const MakerItem = ({card}) => {
+const MakerItem = ({card, deleteCard, updateCard}) => {
   const {
+    id,
     name,
     company,
     title,
@@ -15,28 +16,48 @@ const MakerItem = ({card}) => {
     fileURL,
   } = card;
 
+  const nameRef = useRef();
+  const companyRef = useRef();
+  const themeRef = useRef();
+  const titleRef = useRef();
+  const emailRef = useRef();
+  const messageRef = useRef();
+
   const onSubmit = (e) => {
     e.preventDefault();
+    deleteCard(card);
   } 
+
+  const onChange = (e) => {
+    if(e.currentTarget === null) {
+      return ;
+    }
+    e.preventDefault();
+    
+    updateCard({
+      ...card,
+      [e.currentTarget.name]: e.currentTarget.value,
+    });
+  }
 
   return (
     <li className={styles.item}>
       <form className={styles.form}>
-        <input type="text" className={styles.input} name="name" value={name} />
-        <input type="text" className={styles.input} name="company" value={company}/>
-        <select type="text" className={styles.select} name="theme" value={theme} >
+        <input ref={nameRef}  type="text" className={styles.input} name="name" value={name} onChange={onChange}/>
+        <input ref={companyRef} type="text" className={styles.input} name="company" value={company}onChange={onChange} />
+        <select ref={themeRef} type="text" className={styles.select} name="theme" value={theme} onChange={onChange} >
           <option value='light'>Light</option>
-          <option value='darl'>Dark</option>
+          <option value='dark'>Dark</option>
           <option value='colorful'>Colorful</option>
         </select>
-        <input type="text" className={styles.input} name="title" value={title} />
-        <input type="text" className={styles.input} name="email" value={email}/>
-        <textarea type="text" className={styles.textarea} name="message" value={message}/>
+        <input ref={titleRef} type="text" className={styles.input} name="title" value={title} onChange={onChange}/>
+        <input ref={emailRef} type="text" className={styles.input} name="email" value={email} onChange={onChange}/>
+        <textarea ref={messageRef}  type="text" className={styles.textarea} name="message" value={message} onChange={onChange}/>
         <div className={styles.fileInput}>
           <ImageFileInput fileName={fileName} />
         </div>
         <div className={styles.button}>
-          <MakeButton name="Delete" onClick={onSubmit}/>
+          <MakeButton name="Delete" onSubmit={onSubmit}/>
         </div>
       </form>
     </li>

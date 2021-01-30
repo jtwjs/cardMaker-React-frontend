@@ -8,8 +8,8 @@ const Preview = ({cards}) => {
       <h1 className={styles.title}>Preview</h1>
       <ul className={styles.list}>
         {
-          cards.map(card => {
-          return  <PreviewItem key={card.id} card={card}/>
+          Object.keys(cards).map(key => {
+          return  <PreviewItem key={key} card={cards[key]}/>
           })
         }
       </ul>
