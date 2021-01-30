@@ -40,6 +40,11 @@ const Main = ({authService}) => {
         fileName: 'woong',
         fileURL: 'woong.png',
     },]);
+
+    const addCard = (value) => {
+        setCards([...cards,value]);
+    }
+
     const history = useHistory();
     const onLogout = useCallback(() => {
         authService.logout();   
@@ -57,7 +62,7 @@ const Main = ({authService}) => {
         <>
             <Header onLogout={onLogout}/>
             <main className={styles.main}>
-                <Maker cards={cards}/>
+                <Maker cards={cards} onSubmit={addCard}/>
                 <Preview cards={cards}/>
             </main>
             <Footer/>
