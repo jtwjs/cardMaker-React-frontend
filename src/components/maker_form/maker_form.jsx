@@ -4,15 +4,12 @@ import MakeButton from '../maker_button/maker_button';
 
 const MakerItem = ({FileInput, card, deleteCard, updateCard}) => {
   const {
-    id,
     name,
     company,
     title,
     email,
     message,
     theme,
-    fileName,
-    fileURL,
   } = card;
 
   const nameRef = useRef();
@@ -61,7 +58,7 @@ const MakerItem = ({FileInput, card, deleteCard, updateCard}) => {
         <input ref={emailRef} type="text" className={styles.input} name="email" value={email} onChange={onChange}/>
         <textarea ref={messageRef}  type="text" className={styles.textarea} name="message" value={message} onChange={onChange}/>
         <div className={styles.fileInput}>
-          <FileInput name={card.fileName}onFileChange={onFileChange}/>
+          <FileInput name={card.fileName} onFileChange={onFileChange}/>
         </div>
         <div className={styles.button}>
           <MakeButton name="Delete" onSubmit={onSubmit}/>

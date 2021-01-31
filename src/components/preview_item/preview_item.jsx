@@ -11,7 +11,6 @@ const PreviewItem = ({card}) => {
     email,
     message,
     theme,
-    fileName,
     fileURL,
   } = card;
 
