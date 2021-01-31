@@ -5,7 +5,7 @@ import Login from './components/login/login';
 import Main from './components/main/main';
 
 
-const App = ({authService}) => {
+const App = ({FileInput, authService}) => {
 
   return (
     <div className={styles.app}>
@@ -15,7 +15,7 @@ const App = ({authService}) => {
             <Login authService={authService}/>
           </Route>
           <Route path="/main">
-            <Main authService={authService}/>
+            <Main FileInput={FileInput} authService={authService}/>
           </Route>
         </Switch>
       </Router>

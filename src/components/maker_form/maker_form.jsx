@@ -1,9 +1,8 @@
 import React, { useRef } from 'react';
 import styles from './maker_form.module.css';
 import MakeButton from '../maker_button/maker_button';
-import ImageFileInput from '../image_file_input/image_file_input';
 
-const MakerItem = ({card, deleteCard, updateCard}) => {
+const MakerItem = ({FileInput, card, deleteCard, updateCard}) => {
   const {
     id,
     name,
@@ -27,6 +26,14 @@ const MakerItem = ({card, deleteCard, updateCard}) => {
     e.preventDefault();
     deleteCard(card);
   } 
+
+  const onFileChange = file => {
+    updateCard({
+      ...card,
+      fileName: file.name,
+      fileURL: file.url,
+    });
+  }
 
   const onChange = (e) => {
     if(e.currentTarget === null) {
@@ -54,7 +61,7 @@ const MakerItem = ({card, deleteCard, updateCard}) => {
         <input ref={emailRef} type="text" className={styles.input} name="email" value={email} onChange={onChange}/>
         <textarea ref={messageRef}  type="text" className={styles.textarea} name="message" value={message} onChange={onChange}/>
         <div className={styles.fileInput}>
-          <ImageFileInput fileName={fileName} />
+          <FileInput name={card.fileName}onFileChange={onFileChange}/>
         </div>
         <div className={styles.button}>
           <MakeButton name="Delete" onSubmit={onSubmit}/>

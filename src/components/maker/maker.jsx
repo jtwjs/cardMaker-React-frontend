@@ -1,9 +1,9 @@
 import React from 'react';
-import MakerItem from '../maker_form/maker_form';
+import MakerForm from '../maker_form/maker_form';
 import AddForm from '../add_form/add_form';
 import styels from './maker.module.css';
 
-const Maker = ({cards, addCard, deleteCard, updateCard}) => {
+const Maker = ({FileInput, cards, addCard, deleteCard, updateCard}) => {
   return (
     <section className={styels.maker}>
       <h1 className={styels.title}>Maker</h1>
@@ -11,14 +11,18 @@ const Maker = ({cards, addCard, deleteCard, updateCard}) => {
         {
           Object.keys(cards).map(key => {
         
-          return <MakerItem key={key}
+          return <MakerForm key={key}
+          FileInput={FileInput}
            card={cards[key]} 
            deleteCard={deleteCard}
            updateCard={updateCard}
            />
         })
       }
-      <AddForm addCard={addCard}/>
+      <AddForm 
+      FileInput={FileInput}
+      addCard={addCard}
+      />
       </ul>
     </section>
   );
