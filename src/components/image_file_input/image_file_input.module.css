@@ -1,7 +1,9 @@
-@value makerLightGrey,makerWhite,makerLightPink from '../../common/colors.css';
+@value makerLightGrey,makerWhite,makerPink,makerLightPink from '../../common/colors.css';
 
 .container {
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
 }
@@ -24,10 +26,28 @@
   text-overflow: ellipsis;
 }
 
-.has-file {
+.pink {
   background-color: makerLightPink;
 }
 
-.no-file {
+.grey {
   background-color: makerLightGrey;
+}
+
+.loading {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 3px solid makerLightGrey;
+  border-top: 3px solid makerPink;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
