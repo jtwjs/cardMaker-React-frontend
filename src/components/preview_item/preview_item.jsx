@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {memo} from 'react';
 import styles from './preview_item.module.css';
 
 const DEFAULT_IMAGE = '/images/default_logo.png';
 
-const PreviewItem = ({card}) => {
+const PreviewItem = memo(({card}) => {
   const {
     name,
     company,
@@ -44,7 +44,7 @@ const PreviewItem = ({card}) => {
         </div>
     </li>
   );
-};
+});
 
 function getStyles(theme) {
   switch(theme) {

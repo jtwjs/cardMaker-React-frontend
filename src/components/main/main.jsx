@@ -30,6 +30,7 @@ const Main = ({FileInput, authService, cardRepository}) => {
     }
 
     const history = useHistory();
+    
     const onLogout = useCallback(() => {
         authService.logout();   
       }, [authService]);

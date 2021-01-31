@@ -1,8 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, memo } from 'react';
 import styles from './maker_form.module.css';
 import MakeButton from '../maker_button/maker_button';
 
-const MakerItem = ({FileInput, card, deleteCard, updateCard}) => {
+const MakerItem = memo(({FileInput, card, deleteCard, updateCard}) => {
   const {
     name,
     company,
@@ -66,6 +66,6 @@ const MakerItem = ({FileInput, card, deleteCard, updateCard}) => {
       </form>
     </li>
   );
-};
+});
 
 export default MakerItem;
