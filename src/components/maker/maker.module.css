@@ -3,7 +3,7 @@
 
 .maker {
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
   border-right: 1px solid makerLightGrey;
   padding: 2rem 1rem;
 }
